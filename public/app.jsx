@@ -4,11 +4,7 @@ import Ticker from './Ticker.jsx';
 
 class App extends Component {
     render () {
-      return (
-        <div>
-           <Ticker />
-        </div>
-      )
+      return <Ticker />
     }
 }
 

@@ -5,8 +5,7 @@ import Ticker from './Ticker.jsx';
 const Stock = (props) => {
     return (
         <form onSubmit={props.buy}>
-        Stock Symbol:<br />
-        <input type="text" id="stockName" placeholder="Enter Symbol"/>
+        <lablel>Buy Stock</lablel><input type="text" id="stockName" placeholder="Enter Symbol"/>
     </form>
 );
 

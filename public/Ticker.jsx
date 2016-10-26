@@ -10,7 +10,7 @@ class Ticker extends Component {
     this.buyStock = this.buyStock.bind(this);
     this.state = {
       stocks: [],
-      money: 50000
+      money: 50000,
     }
   }
 
@@ -18,23 +18,18 @@ class Ticker extends Component {
     e.preventDefault();
     const stock = document.getElementById('stockName').value;
     document.getElementById('stockName').value = "";
-    console.log(stock);
     $.ajax({
       url: '/stock/' + stock.toUpperCase(),
       data: JSON.stringify({stock}),
-      // errror : (err) =>
       success: (data) =>{
-        console.log(data);
-        //copy out this.state.stocks
         const newArr = this.state.stocks.slice(0);
-        //push new object to copied aray
         newArr.push({
           'BuySymbol' : data.t,
           'BuyPrice' : data.l_cur,
           'BuyTime' : data.lt
           });
-          console.log(this);
-        this.setState( {stocks: newArr})
+          const money = parseInt(this.state.money) - parseInt(data.l_cur);
+        this.setState( {stocks: newArr, money : money})
       },
       error : (error) => {
         console.log(error);
@@ -45,6 +40,7 @@ class Ticker extends Component {
   render () {
     return (
       <div>
+      <h2>Current Money {this.state.money}</h2>
       <form onSubmit={this.buyStock}>
         <input type="text" id="stockName" placeholder="Enter Symbol"/>
       </form>
