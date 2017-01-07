@@ -2,7 +2,7 @@
 module.exports = {
   entry: './public/app.jsx',
   output: {
-    path: './public',
+    path: '.',
     filename: 'bundle.js'
   },
   resolve: {
@@ -15,7 +15,7 @@ module.exports = {
 		contentBase: './',
 		port: 8080,
 		noInfo: true,
-		//hot: true,
+		// hot: true,
 		inline: true,
 		proxy: {
 			'/': {
@@ -35,7 +35,10 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
-      }
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
     ]
   }
 };

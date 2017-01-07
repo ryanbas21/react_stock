@@ -1,0 +1,10 @@
+#stock-container {
+  width: 100%;
+  display: flex;
+  align-content: center;
+}
+.stock {
+  display: inline-block;;
+  align-content: center;
+  text-align: center;
+}

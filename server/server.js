@@ -16,8 +16,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'public')));
 //app.get('/stock', (req,res) => console.log('test'));
 app.get('/', (req,res) => res.sendFile('index.html', {root : __dirname + '/../public/'}));
+app.get('/styles.css', (req,res) => res.sendFile('styles.css', {root: __dirname + '/../public'}))
 app.get('/stock/:id', getStock);
-
+app.get('/bundle.js', (req,res) => res.sendFile('bundle.js', {root: __dirname + '/../'}));
 
 
 

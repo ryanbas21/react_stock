@@ -81,7 +81,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'skfjklsdfjs',
 	        _react2.default.createElement(_Ticker2.default, null)
 	      );
 	    }
@@ -14744,7 +14743,7 @@
 	 *
 	 * @providesModule shallowEqual
 	 * @typechecks
-	 * 
+	 *
 	 */
 
 	'use strict';
